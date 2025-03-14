@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>4DWebsite</title>
+  <style>
+    /* Font Import */
+    @font-face {
+      font-family: 'Jost-Regular';
+      src: url('Jost-Regular.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    /* General Styles */
+    body {
+      font-family: 'Jost-Regular', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color:#000000;
+    }
+    .logo img {
+    height: 8vh;
+    width: auto;
+    margin-right: 20px;
+    margin-top: 1vh;
+  }
+
+  @media (min-width: 1024px) {
+    .logo img {
+      height: 6vh;
+      margin-top: 2vh;
+    }
+  }
+
+    header {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      /* padding: 10px 30px; */
+      background-color: #000000;
+      border-bottom: 2px solid #000000;
+      position: absolute;
+      top: 0;
+      
+    }
+
+    .menu {
+  font-size: 24px;
+  cursor: pointer;
+  margin-left: 20px;
+  color: white; /* Set the text color to white */
+  transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+/* Optional: Change color on hover */
+.menu:hover {
+  color: #c5fffe; /* Light cyan color on hover */
+}
+
+    .logo img {
+      height: 6vh;
+      width: auto;
+      margin-right: 20px;
+      margin-top: 2vh;
+    }
+
+    .center-container {
+      flex-direction: column;
+      text-align: center;
+      margin-top: -0px;
+      display: flex;
+      gap: 100px;
+    }
+
+    /* Buttons */
+    .buttons {
+      display: flex;
+      flex-direction: column; /* Stack buttons vertically */
+      justify-content: center;
+      gap: 70px; /* Increased spacing between buttons */
+    }
+
+    .buttons button {
+      padding: 10px 20px;
+      font-size: 25px;
+      color: #c5fffe;
+      border: 2px solid #c5fffe;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      background: url('button-bg.jpg') no-repeat center center;
+      background-size: cover;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .buttons button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    @media (max-width: 768px) {
+      .center-container h1 {
+        font-size: 15px;
+      }
+
+      .buttons button {
+        width: 100%;
+        max-width: 200px;
+      }
+      header {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #000000;
+      border-bottom: 2px solid #000000;
+      position: absolute;
+      top: 0;
+      
+    }
+    .logo img {
+      height: 6vh;
+      width: auto;
+      margin-right: 20px;
+      margin-top: 1vh;
+    }
+    .buttons button {
+      font-size: 15px;
+    }
+    }
+  </style>  
+</head>
+<body>
+<header>
+  <div class="menu">☰</div>
+  <div class="logo">
+  <img src="logo-dark.png" alt="Logo" class="logo">
+</div>
+</header>
+
+<main class="content">
+  <div class="center-container">
+    <div class="buttons">
+      <button onclick="navigateTo('Largeequipment.html')">LARGE EQUIPMENT</button>
+      <button onclick="navigateTo('Mediumdevices.html')">MEDIUM DEVICES</button>
+      <button onclick="navigateTo('SmallDevices.html')">SMALL DEVICES</button>
+      <button onclick="navigateTo('Booth.html')">EVENT BOOTH</button>  
+    </div>
+  </div>
+</main>
+
+<script>
+  // JavaScript function to navigate to a new page
+  function navigateTo(page) {
+    window.location.href = page;
+  }
+</script>
+
+</body>
+</html>

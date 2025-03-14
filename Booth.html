@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EVENT BOOTH</title>
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;600&display=swap" rel="stylesheet">
+
+ <style>
+    /* Add Jost-Regular font */
+    @font-face {
+      font-family: 'Jost-Regular';
+      src: url('Jost-Regular.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    /* Basic styling */
+    body {
+      font-family: 'Jost-Regular', 'Jost', sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0px 0px;
+      background: #000000;
+      color: #fff;
+      font-family: 'Jost-Regular', sans-serif;
+    }
+
+    header .menu {
+      font-size: 24px;
+      cursor: pointer;
+      margin-left: 20px;
+    }
+
+    header .logo img {
+      height: 70px;
+      margin-right: 20px;
+      margin-top: 2vh;
+    }
+
+    .center-container {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .center-container h1 {
+      font-size: 24px;
+      margin-bottom: 10px;
+      font-family: 'Jost-Regular', sans-serif;
+    }
+
+    .portfolio {
+      display: grid;
+      transform: translateY(15%);
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .portfolio-item {
+      background: #f9f9f9;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .portfolio-image {
+      position: relative;
+    }
+
+    model-viewer {
+      width: 100%;
+      height: 300px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    button#ar-button {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 16px;
+      background-color: #ffffff78;
+      color: #020202;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+      line-height: 1.5;
+      font-family: 'Jost-Regular', sans-serif;
+      font-weight: 600;
+      white-space: nowrap;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    button#ar-button:hover {
+      background-color: #e8e8e8;
+    }
+
+    .progress-bar {
+      display: block;
+      width: 33%;
+      height: 10%;
+      max-height: 2%;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate3d(-50%, -50%, 0);
+      border-radius: 25px;
+      box-shadow: 0px 3px 10px 3px rgba(0, 0, 0, 0.5), 0px 0px 5px 1px rgba(0, 0, 0, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .progress-bar.hide {
+      visibility: hidden;
+      transition: visibility 0.3s;
+    }
+
+    .update-bar {
+      background-color: rgba(255, 255, 255, 0.9);
+      width: 0%;
+      height: 100%;
+      border-radius: 25px;
+      float: left;
+      transition: width 0.3s;
+    }
+
+    @media (max-width: 768px) {
+      .portfolio {
+        transform: translateY(1%);
+      }
+       header .logo img {
+      height: 40px;
+      margin-right: 20px;
+      margin-top: 2vh;   
+    }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="menu">☰</div>
+  <div class="logo">
+    <img src="logo-dark.png" alt="Logo">
+  </div>
+</header>
+
+<main class="content">
+  <div class="center-container">
+    <h1>EVENT BOOTH</h1>
+  </div>
+</main>
+
+<div class="portfolio">
+  <article class="portfolio-item">
+    <div class="portfolio-image">
+      <model-viewer src="Booth.glb" alt="VR Headset" auto-rotate camera-controls ar>
+        <div class="progress-bar hide" slot="progress-bar">
+          <div class="update-bar"></div>
+        </div>
+        <button slot="ar-button" id="ar-button">View in 4D</button>
+      </model-viewer>
+    </div>
+  </article>
+
+  <article class="portfolio-item">
+    <div class="portfolio-image">
+      <model-viewer src="Carm.glb" alt="AR SCANNER" auto-rotate camera-controls ar ios-src="assets/CT_SCANNER_A.usdz">
+        <button slot="ar-button" id="ar-button">View in 4D</button>
+      </model-viewer>
+    </div>
+  </article>
+
+  <article class="portfolio-item">
+    <div class="portfolio-image">
+      <model-viewer src="steradbooth_1.glb" alt="AR SCANNER" auto-rotate camera-controls ar>
+        <button slot="ar-button" id="ar-button">View in 4D</button>
+      </model-viewer>
+    </div>
+  </article>
+   <article class="portfolio-item">
+    <div class="portfolio-image">
+      <model-viewer src="CT_Room.glb" alt="AR SCANNER" auto-rotate camera-controls ar tone-mapping="agx" shadow-intensity="1.26" exposure="2" shadow-softness="1">
+        <button slot="ar-button" id="ar-button">View in 4D</button>
+      </model-viewer>
+    </div>
+  </article>
+</div>
+
+<script>
+  // Additional JS logic (if needed) can go here
+</script>
+
+</body>
+</html>
